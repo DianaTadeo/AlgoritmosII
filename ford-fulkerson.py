@@ -1,5 +1,12 @@
+'''
+Este programa implementa 2 tipos de representacion de una grafica:
+	-Matricial
+	-En Listas
+Tambien implementa el algoritmo de ford-fulkerson para obtener el
+flujo maximo de una red.
 
-from collections import defaultdict
+Autor: Diana Tadeo G.
+'''
 import random
 import networkx as nx
 import matplotlib.pyplot as plt
@@ -39,7 +46,6 @@ class GraphMatrix:
 		print('ORIGINAL')
 		for i in range(tam):
 			print(graph[i])
-		print(edges)
 		self.graphRes = graph # grafica residual
 		self. order = tam
 		self.edges=edges
@@ -163,7 +169,6 @@ class GraphLists:
 				if res==-1:
 					edge=(j,i,random.randrange(maxim))
 					edges.append(edge)
-		print(edges)
 		self.order=tam
 		self.nodes=nodes
 		self.edges=edges
@@ -200,6 +205,7 @@ class GraphLists:
 			if i[1]==(self.order-1):
 				n2='T'
 			edges.append((n1,n2, i[2]))
+		print(edges)
 		return edges
 		
 '''
@@ -239,10 +245,12 @@ maxim=int(input('Ingresela cangtidad maxima de capacidad para las aristas: '))
 print('Ingrese la representacion que desea visualizar.')
 rep=int(input('\n1.Matriz\n2.Listas\n'))
 if rep ==1:
+	print('\n*--Representacion--*\n')
 	g = GraphMatrix(nodes,maxim) 
 	s = 0; t=g.order-1
 	print ("El flujo maximo es %d " % g.FordFulkerson(s, t)) 
 	drawGraphic(g)
 elif rep ==2:
+	print('\n*--Representacion--*\n')
 	g=GraphLists(nodes,maxim)
 	drawGraphic(g)
