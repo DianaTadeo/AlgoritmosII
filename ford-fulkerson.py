@@ -1,3 +1,4 @@
+#!usr/bin/python3
 '''
 Este programa implementa 2 tipos de representacion de una grafica:
 	-Matricial
